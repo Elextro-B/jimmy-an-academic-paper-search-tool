@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload PDFs</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; }
+        .upload-box { border: 2px dashed #ccc; padding: 40px; text-align: center; border-radius: 8px; margin-bottom: 20px;}
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin-top: 15px;}
+    </style>
+</head>
+<body>
+
+    <h2>Ingest New Research PDFs</h2>
+    
+    <form method="POST" enctype="multipart/form-data" class="upload-box">
+        <!-- The 'multiple' attribute allows selecting more than one file -->
+        <input type="file" name="pdf_files" accept=".pdf" multiple required>
+        <br>
+        <button type="submit">Ingest PDFs</button>
+    </form>
+
+    <a href="/">Back to Search</a>
+
+</body>
+</html>

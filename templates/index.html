@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Research Search</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; }
+        input[type="text"] { width: 70%; padding: 8px; }
+        button { padding: 8px 16px; cursor: pointer; }
+        .results { margin-top: 20px; padding: 10px; background: #f9f9f9; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>Search Ingested Research</h2>
+    
+    <!-- The form sends a POST request back to app.py -->
+    <form method="POST">
+        <input type="text" name="query" placeholder="Enter a keyword..." value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- This block only shows up if a search was performed -->
+    {% if results is not none %}
+        <div class="results">
+            <h3>Matches for "{{ query }}":</h3>
+            {% if results %}
+                <ul>
+                {% for filename in results %}
+                    <li>{{ filename }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No matches found in your PDFs.</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+</body>
+</html>
